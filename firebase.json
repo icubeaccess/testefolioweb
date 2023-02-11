@@ -1,0 +1,60 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/v1/**",
+        "function": "webApi"
+      },
+      {
+        "source": "!/@(bleak|hailey|ober|itsme|material|volos_premium)/**",
+        "destination": "/index.html"
+      },
+      {
+          "source": "/bleak/**",
+          "destination": "/bleak/index.html"
+      },
+      {
+          "source": "/hailey/**",
+          "destination": "/hailey/index.html"
+      },
+      {
+          "source": "/ober/**",
+          "destination": "/ober/index.html"
+      },
+      {
+          "source": "/itsme/**",
+          "destination": "/itsme/index.html"
+      },
+      {
+          "source": "/material/**",
+          "destination": "/material/index.html"
+      },
+      {
+          "source": "/volos_premium/**",
+          "destination": "/volos_premium/index.html"
+      }
+      
+    ]
+  }
+}
